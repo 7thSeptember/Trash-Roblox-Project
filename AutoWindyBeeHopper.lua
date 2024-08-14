@@ -42,8 +42,13 @@ function live(o)
        end
     end)
 end
-
-workspace.NPCBees.ChildAdded:Connect(function(child) --credits to trans for this
+f = workspace.NPCBees
+if f:FindFirstChild("Windy") then
+    local S,F = pcall(function()
+       live()
+    end)
+end
+f.ChildAdded:Connect(function(child) --credits to trans for this
     task.wait(0.33)
     if child.Name == "Windy" then
         foundNPC = true
