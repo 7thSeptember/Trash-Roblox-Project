@@ -29,6 +29,7 @@ end
 local rs = game:GetService("RunService")
 local c = game.CurrentCamera
 function live(o)
+    foundNPC = true
     local Square = Drawing.new("Square")
     Square.Thickness = 0.5
     Square.Size = Vector2.new(20,20)
@@ -44,13 +45,11 @@ function live(o)
 end
 f = workspace.NPCBees
 if f:FindFirstChild("Windy") then
-       foundNPC = true
        live(f.Windy)
 end
 f.ChildAdded:Connect(function(child)
     task.wait(0.33)
     if child.Name == "Windy" then
-        foundNPC = true
         live(f.Windy)
     end
 end)
