@@ -27,7 +27,7 @@ local function hop()
     end
 end
 local rs = game:GetService("RunService")
-local c = game.CurrentCamera
+local c = workspace.CurrentCamera
 function live(o)
     foundNPC = true
     local Square = Drawing.new("Square")
