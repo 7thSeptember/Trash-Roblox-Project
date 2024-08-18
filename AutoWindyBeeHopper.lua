@@ -31,8 +31,8 @@ local c = game.CurrentCamera
 function live(o)
     local Square = Drawing.new("Square")
     Square.Thickness = 0.5
-    Square.Size = _G.WSize or Vector2.new(20,20)
-    RS.RenderStepped:connect(function()
+    Square.Size = Vector2.new(20,20)
+    rs.RenderStepped:connect(function()
        local V, On = c:WorldToViewportPoint(o.Position)
        if On then
            Square.Visible = true
@@ -44,17 +44,14 @@ function live(o)
 end
 f = workspace.NPCBees
 if f:FindFirstChild("Windy") then
-    local S,F = pcall(function()
-       live()
-    end)
+       foundNPC = true
+       live(f.Windy)
 end
-f.ChildAdded:Connect(function(child) --credits to trans for this
+f.ChildAdded:Connect(function(child)
     task.wait(0.33)
     if child.Name == "Windy" then
         foundNPC = true
-        local S,F = pcall(function()
-        live(workspace.NPCBees.Windy)
-        end)
+        live(f.Windy)
     end
 end)
 
