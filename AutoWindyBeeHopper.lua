@@ -1,9 +1,5 @@
-local placeID = game.PlaceId
-local teleportService = game:GetService("TeleportService")
-local httpService = game:GetService("HttpService")
-local foundNPC = false
-
-local function hop()
+local foundNPC
+function hop()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Morples/Server-hop/main/Script"))() -- open source server hop script, I don't wanna copy and paste the entire script when I can just paste the source here
 end
 sg = game:GetService("StarterGui")
