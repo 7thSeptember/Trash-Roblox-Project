@@ -48,7 +48,6 @@ if f:FindFirstChild("Windy") then
        live(f.Windy)
 end
 f.ChildAdded:Connect(function(child)
-    task.wait(0.33)
     if child.Name == "Windy" then
         live(f.Windy)
     end
