@@ -26,9 +26,11 @@ local function hop()
         end
     end
 end
+if _G.Executed then hop() end
 local rs = game:GetService("RunService")
 local c = workspace.CurrentCamera
 function live(o)
+    _G.Executed
     foundNPC = true
     local Square = Drawing.new("Square")
     Square.Thickness = 0.5
@@ -53,7 +55,7 @@ f.ChildAdded:Connect(function(child)
     end
 end)
 
-task.wait(5)
+task.wait(20)
 if not foundNPC then
     hop()
 end
