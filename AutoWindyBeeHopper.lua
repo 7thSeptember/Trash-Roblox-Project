@@ -1,3 +1,4 @@
+
 local placeID = game.PlaceId
 local teleportService = game:GetService("TeleportService")
 local httpService = game:GetService("HttpService")
@@ -26,11 +27,11 @@ local function hop()
         end
     end
 end
-if _G.Executed then hop() end
+if _G.Executed then hop() end -- hop if you executed more than once
+_G.Executed = true
 local rs = game:GetService("RunService")
 local c = workspace.CurrentCamera
 function live(o)
-    _G.Executed
     foundNPC = true
     local Square = Drawing.new("Square")
     Square.Thickness = 0.5
