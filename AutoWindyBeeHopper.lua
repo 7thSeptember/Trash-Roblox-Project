@@ -27,24 +27,25 @@ local function hop()
     end
 end
 sg = game:GetService("StarterGui")
-function live(m)
-    foundNPC = true
+function live(m, o)
+    foundNPC = o or false
     sg:SetCore("SendNotification", {
 	Title = "Notification";
 	Text = m..".";
 	Duration = 30;
     })
-    script:Destroy()
 end
+if _G.Executed then live("Script already executed, server hopping...") hop() end
+_G.Executed = true
 Found = "Windy bee found"
 No = "Windy bee NOT found, hopping"
 f = workspace.NPCBees
 if f:FindFirstChild("Windy") then
-       live(Found)
+       live(Found, true)
 end
 f.ChildAdded:Connect(function(child)
     if child.Name == "Windy" then
-        live(Found)
+        live(Found, true)
     end
 end)
 
