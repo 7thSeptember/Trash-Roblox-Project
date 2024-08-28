@@ -11,8 +11,6 @@ local function hop()
     if not success or not site or not site.data then
         return
     end
-
-    local foundServer = false
     for _, serverData in pairs(site.data) do
         if serverData.maxPlayers > serverData.playing then
             local serverID = tostring(serverData.id)
@@ -20,7 +18,6 @@ local function hop()
                 teleportService:TeleportToPlaceInstance(placeID, serverID, game.Players.LocalPlayer)
             end)
             if success then
-                foundServer = true
                 break
             end
         end
