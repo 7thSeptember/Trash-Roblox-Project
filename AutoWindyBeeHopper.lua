@@ -4,24 +4,7 @@ local httpService = game:GetService("HttpService")
 local foundNPC = false
 
 local function hop()
-    local success, site = pcall(function()
-        return httpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. placeID .. '/servers/Public?sortOrder=Asc&limit=100'))
-    end)
-
-    if not success or not site or not site.data then
-        return
-    end
-    for _, serverData in pairs(site.data) do
-        if serverData.maxPlayers > serverData.playing then
-            local serverID = tostring(serverData.id)
-            local success, _ = pcall(function()
-                teleportService:TeleportToPlaceInstance(placeID, serverID, game.Players.LocalPlayer)
-            end)
-            if success then
-                break
-            end
-        end
-    end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Morples/Server-hop/main/Script"))() -- open source server hop script, I don't wanna copy and paste the entire script when I can just paste the source here
 end
 sg = game:GetService("StarterGui")
 function live(m, o)
