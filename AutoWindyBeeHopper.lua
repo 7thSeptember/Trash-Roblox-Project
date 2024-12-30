@@ -28,7 +28,7 @@ f.ChildAdded:Connect(function(child)
     end
 end)
 
-wait(20)
+task.wait(20)
 if not foundNPC then
     live(No)
     hop()
