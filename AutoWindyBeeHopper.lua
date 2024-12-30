@@ -1,3 +1,6 @@
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
 local foundNPC
 function hop()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Morples/Server-hop/main/Script"))() -- open source server hop script, I don't wanna copy and paste the entire script when I can just paste the source here
